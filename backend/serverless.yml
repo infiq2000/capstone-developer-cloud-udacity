@@ -92,7 +92,7 @@ functions:
     #   # TODO: Configure this function
     #   # Provide property for setting up CORS, Authorizer, iamRoleStatements, and request schemas
   UpdateTodo:
-    handler: src/lambda/http/updateTodo.handler
+    handler: src/lambda/http/updateStudent.handler
     events:
       - http:
           method: patch
@@ -115,7 +115,7 @@ functions:
     #   # TODO: Configure this function
     #   # Provide property for setting up CORS, Authorizer, iamRoleStatements
   DeleteTodo:
-    handler: src/lambda/http/deleteTodo.handler
+    handler: src/lambda/http/deleteStudent.handler
     events:
       - http:
           method: delete
