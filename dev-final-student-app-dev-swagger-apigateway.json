@@ -1,0 +1,325 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "2023-09-11T02:35:01Z",
+    "title": "dev-employee-management-app"
+  },
+  "basePath": "/dev",
+  "schemes": ["https"],
+  "paths": {
+    "/todos": {
+      "get": {
+        "responses": {},
+        "security": [
+          {
+            "Auth": []
+          }
+        ],
+        "x-amazon-apigateway-integration": {
+          "type": "aws_proxy",
+          "httpMethod": "POST",
+          "uri": "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:017090148907:function:final-student-app-dev-GetTodos/invocations",
+          "passthroughBehavior": "when_no_match"
+        }
+      },
+      "post": {
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "finalApiGamt9iulZR2jDp",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/finalApiGamt9iulZR2jDp"
+            }
+          }
+        ],
+        "responses": {},
+        "security": [
+          {
+            "Auth": []
+          }
+        ],
+        "x-amazon-apigateway-request-validator": "final-student-app-dev | Validate request body and querystring parameters",
+        "x-amazon-apigateway-integration": {
+          "type": "aws_proxy",
+          "httpMethod": "POST",
+          "uri": "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:017090148907:function:final-student-app-dev-CreateTodo/invocations",
+          "passthroughBehavior": "when_no_match"
+        }
+      },
+      "options": {
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "headers": {
+              "Access-Control-Allow-Origin": {
+                "type": "string"
+              },
+              "Access-Control-Allow-Methods": {
+                "type": "string"
+              },
+              "Access-Control-Allow-Headers": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "x-amazon-apigateway-integration": {
+          "type": "mock",
+          "responses": {
+            "default": {
+              "statusCode": "200",
+              "responseParameters": {
+                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,POST,GET'",
+                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent,X-Amzn-Trace-Id'",
+                "method.response.header.Access-Control-Allow-Origin": "'*'"
+              }
+            }
+          },
+          "requestTemplates": {
+            "application/json": "{statusCode:200}"
+          },
+          "passthroughBehavior": "when_no_match",
+          "contentHandling": "CONVERT_TO_TEXT"
+        }
+      }
+    },
+    "/todos/{todoId}": {
+      "delete": {
+        "parameters": [
+          {
+            "name": "todoId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {},
+        "security": [
+          {
+            "Auth": []
+          }
+        ],
+        "x-amazon-apigateway-integration": {
+          "type": "aws_proxy",
+          "httpMethod": "POST",
+          "uri": "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:017090148907:function:final-student-app-dev-DeleteTodo/invocations",
+          "passthroughBehavior": "when_no_match"
+        }
+      },
+      "options": {
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "todoId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "headers": {
+              "Access-Control-Allow-Origin": {
+                "type": "string"
+              },
+              "Access-Control-Allow-Methods": {
+                "type": "string"
+              },
+              "Access-Control-Allow-Headers": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "x-amazon-apigateway-integration": {
+          "type": "mock",
+          "responses": {
+            "default": {
+              "statusCode": "200",
+              "responseParameters": {
+                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,DELETE,PATCH'",
+                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent,X-Amzn-Trace-Id'",
+                "method.response.header.Access-Control-Allow-Origin": "'*'"
+              }
+            }
+          },
+          "requestTemplates": {
+            "application/json": "{statusCode:200}"
+          },
+          "passthroughBehavior": "when_no_match",
+          "contentHandling": "CONVERT_TO_TEXT"
+        }
+      },
+      "patch": {
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "name": "todoId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "finalApiGadImTeXGvw6hX",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/finalApiGadImTeXGvw6hX"
+            }
+          }
+        ],
+        "responses": {},
+        "security": [
+          {
+            "Auth": []
+          }
+        ],
+        "x-amazon-apigateway-request-validator": "final-student-app-dev | Validate request body and querystring parameters",
+        "x-amazon-apigateway-integration": {
+          "type": "aws_proxy",
+          "httpMethod": "POST",
+          "uri": "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:017090148907:function:final-student-app-dev-UpdateTodo/invocations",
+          "passthroughBehavior": "when_no_match"
+        }
+      }
+    },
+    "/todos/{todoId}/attachment": {
+      "post": {
+        "parameters": [
+          {
+            "name": "todoId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {},
+        "security": [
+          {
+            "Auth": []
+          }
+        ],
+        "x-amazon-apigateway-integration": {
+          "type": "aws_proxy",
+          "httpMethod": "POST",
+          "uri": "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:017090148907:function:final-student-app-dev-GenerateUploadUrl/invocations",
+          "passthroughBehavior": "when_no_match"
+        }
+      },
+      "options": {
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "todoId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "headers": {
+              "Access-Control-Allow-Origin": {
+                "type": "string"
+              },
+              "Access-Control-Allow-Methods": {
+                "type": "string"
+              },
+              "Access-Control-Allow-Headers": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "x-amazon-apigateway-integration": {
+          "type": "mock",
+          "responses": {
+            "default": {
+              "statusCode": "200",
+              "responseParameters": {
+                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,POST'",
+                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent,X-Amzn-Trace-Id'",
+                "method.response.header.Access-Control-Allow-Origin": "'*'"
+              }
+            }
+          },
+          "requestTemplates": {
+            "application/json": "{statusCode:200}"
+          },
+          "passthroughBehavior": "when_no_match",
+          "contentHandling": "CONVERT_TO_TEXT"
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "Auth": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header",
+      "x-amazon-apigateway-authtype": "custom",
+      "x-amazon-apigateway-authorizer": {
+        "type": "token",
+        "authorizerUri": "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:017090148907:function:final-student-app-dev-Auth/invocations",
+        "authorizerResultTtlInSeconds": 300
+      }
+    }
+  },
+  "definitions": {
+    "finalApiGamt9iulZR2jDp": {
+      "type": "object",
+      "required": ["class", "dueDate", "name"],
+      "properties": {
+        "dueDate": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "class": {
+          "type": "string"
+        }
+      },
+      "title": "group"
+    },
+    "finalApiGadImTeXGvw6hX": {
+      "type": "object",
+      "required": ["done", "dueDate", "name"],
+      "properties": {
+        "dueDate": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "done": {
+          "type": "boolean"
+        }
+      },
+      "title": "group"
+    }
+  },
+  "x-amazon-apigateway-gateway-responses": {
+    "DEFAULT_4XX": {
+      "responseParameters": {
+        "gatewayresponse.header.Access-Control-Allow-Methods": "'GET,OPTIONS,POST'",
+        "gatewayresponse.header.Access-Control-Allow-Origin": "'*'",
+        "gatewayresponse.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'"
+      }
+    }
+  },
+  "x-amazon-apigateway-request-validators": {
+    "final-student-app-dev | Validate request body and querystring parameters": {
+      "validateRequestParameters": true,
+      "validateRequestBody": true
+    }
+  }
+}
